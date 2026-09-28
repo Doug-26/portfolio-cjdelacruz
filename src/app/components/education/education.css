@@ -109,6 +109,27 @@
   color: var(--ink-900);
 }
 
+.dev-title { margin-top: 32px; }
+
+.dev-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.dev-list li {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--ink-700);
+  padding: 7px 14px;
+  background: var(--surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
+  box-shadow: var(--shadow-sm);
+}
+
 @media (max-width: 880px) {
   .grid { grid-template-columns: 1fr; gap: 36px; }
 }

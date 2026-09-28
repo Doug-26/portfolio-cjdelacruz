@@ -19,6 +19,13 @@
           </div>
         </article>
       }
+
+      <h3 class="col-title dev-title" appReveal="slide-up">Professional Development</h3>
+      <ul class="dev-list" appReveal="slide-up" [revealDelay]="80">
+        @for (topic of profile.professionalDevelopment; track topic) {
+          <li>{{ topic }}</li>
+        }
+      </ul>
     </div>
 
     <div class="col">

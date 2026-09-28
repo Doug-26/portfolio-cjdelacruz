@@ -4,13 +4,18 @@ export interface SkillGroup {
   icon: string;
 }
 
+export interface ExperienceRole {
+  title: string;
+  bullets: string[];
+}
+
 export interface ExperienceEntry {
   company: string;
   role: string;
   start: string;
   end: string;
   location: string;
-  bullets: string[];
+  roles: ExperienceRole[];
 }
 
 export interface EducationEntry {
@@ -57,6 +62,7 @@ export interface Profile {
   experience: ExperienceEntry[];
   education: EducationEntry[];
   certifications: Certification[];
+  professionalDevelopment: string[];
   leadership: string;
   projects: Project[];
 }
@@ -74,24 +80,24 @@ export const profile: Profile = {
   resumeFile: 'cv-De-La-Cruz.pdf',
   resumeDownloadName: 'Christian-Jay-De-La-Cruz-Resume.pdf',
   tagline:
-    'I build fast, accessible web & mobile experiences — modernizing Angular/Ionic apps, shipping .NET-backed features, and automating mobile delivery.',
-  bio: 'Software engineer with 4+ years at Accenture, focused on Angular, Ionic, and .NET. I lead framework modernizations, build responsive UI components against REST APIs, and ship mobile build automation through Azure Pipelines and Firebase. I also design low-code business apps on Microsoft Power Platform with Power Apps and Power Automate. I enjoy turning messy upgrade paths into clean, maintainable codebases — and helping teammates pick up new tech along the way.',
-  yearsAtAccenture: '4+',
+    'I deliver, maintain, and improve live web & mobile apps — modernizing Angular/Ionic codebases, fixing production issues at the root, and automating mobile delivery.',
+  bio: "Software engineer with 5 years at Accenture delivering, maintaining, and improving live enterprise web and hybrid mobile applications. I investigate and resolve support tickets through root-cause analysis, ship change requests and bug fixes, and deploy updates through Azure DevOps. I'm strongest in HTML, CSS, JavaScript/TypeScript, and Angular, and I've built full-stack apps with C# and .NET in personal projects. I stay calm during production incidents, write clear documentation for recurring fixes, and explain technical issues to non-technical stakeholders. Next, I'm looking to grow into a full-stack developer role.",
+  yearsAtAccenture: '5',
   skillGroups: [
     {
       name: 'Frontend',
       icon: 'layout',
-      items: ['Angular', 'TypeScript', 'HTML', 'CSS', 'Responsive Design'],
+      items: ['Angular', 'TypeScript', 'JavaScript', 'HTML5', 'CSS3', 'Ionic', 'Responsive Design', 'Bootstrap', 'Tailwind'],
     },
     {
       name: 'Backend & Database',
       icon: 'server',
-      items: ['.NET Core', 'SQL Server', 'API Integration', 'Unit Testing'],
+      items: ['C#', '.NET Core (Web API)', 'SQL Server', 'API Integration'],
     },
     {
       name: 'Debugging & Support',
       icon: 'bug',
-      items: ['Root-Cause Analysis', 'Defect Resolution', 'Azure DevOps', 'ServiceNow', 'Technical Documentation'],
+      items: ['Root-Cause Analysis', 'Defect Resolution', 'Azure DevOps', 'ServiceNow'],
     },
     {
       name: 'Cloud & Tools',
@@ -111,7 +117,7 @@ export const profile: Profile = {
     {
       name: 'Collaboration',
       icon: 'users',
-      items: ['Agile Teams', 'Code Reviews', 'Cross-functional Communication'],
+      items: ['Agile Teams', 'Code Reviews', 'Cross-Functional Communication'],
     },
   ],
   experience: [
@@ -119,17 +125,29 @@ export const profile: Profile = {
       company: 'Accenture',
       role: 'Custom Software Engineer Associate',
       start: 'Sep 2021',
-      end: 'Present',
+      end: 'Sep 2026',
       location: 'Philippines',
-      bullets: [
-        'Led the Angular v15→v20 and Ionic v4→v8 upgrades across multiple projects, improving performance and cutting long-standing technical debt.',
-        'Designed and shipped responsive Angular UI components wired to RESTful and .NET Core APIs for consistent web/mobile experiences.',
-        'Contributed to full-stack features — authentication, data management, reporting — and helped enhance .NET backend modules with unit tests and API version upgrades.',
-        'Built and deployed low-code business applications with Microsoft Power Apps, integrated with SharePoint/SQL Server and automated approval workflows and notifications through Power Automate.',
-        'Built mobile build distribution automation with Azure Pipelines and Firebase CLI, getting builds to testers faster and more reliably.',
-        'Resolved and tracked defects through Azure DevOps and managed incidents and requests in ServiceNow, using root-cause analysis to reproduce issues and validate fixes before release.',
-        'Authored technical documentation for components, API integration patterns, and deployment processes to speed up onboarding and cross-team collaboration.',
-        'Conducted usability testing and translated user feedback into design improvements that lifted satisfaction scores.',
+      roles: [
+        {
+          title: 'Application Support Engineer / Front-End Developer',
+          bullets: [
+            'Investigated and resolved support tickets for live enterprise web and hybrid mobile applications, reproducing issues, performing root-cause analysis, and validating fixes before production release.',
+            'Delivered change requests and bug fixes on the supported applications (UI tweaks, component updates, API integration fixes) using Angular, TypeScript, HTML5, CSS3/SCSS, and Ionic.',
+            'Managed tickets and defects in Azure DevOps Boards and ServiceNow, working with developers and QA to prioritize and resolve issues.',
+            'Deployed updates and automated mobile build distribution using Azure Pipelines and Firebase CLI, speeding up delivery to testers.',
+            'Modernized the supported applications by upgrading Angular v15 to v20 and Ionic v4 to v8, improving maintainability and performance.',
+            'Coordinated the resolution of a production outage caused by an expired SSL certificate, restoring access and setting up preventive monitoring.',
+            'Wrote technical documentation and troubleshooting guides for recurring issues, improving support efficiency.',
+            'Optimized performance and ensured cross-browser and mobile compatibility through refactoring, lazy loading, and responsive layouts.',
+          ],
+        },
+        {
+          title: 'Power Apps Developer',
+          bullets: [
+            'Designed and deployed business applications using Microsoft Power Apps, integrated with SharePoint/SQL Server, and automated workflows with Power Automate to streamline internal processes.',
+            'Collaborated with stakeholders to gather requirements and translate them into low-code solutions, ensuring rapid delivery and adaptability to evolving business needs.',
+          ],
+        },
       ],
     },
   ],
@@ -145,8 +163,9 @@ export const profile: Profile = {
     { name: 'AWS Cloud Practitioner', year: 2025 },
     { name: 'Scrum Foundation', year: 2022 },
   ],
+  professionalDevelopment: ['Cloud Computing', 'Backend Development (.NET, Node.js & SQL)', 'AI & Automation'],
   leadership:
-    'Served as a leader for the Hybrid Mobile App — providing knowledge transition, technical guidance, and hands-on training to ensure smooth onboarding and consistent delivery.',
+    'Led a hybrid mobile app project, providing knowledge transfer, technical guidance, and training to teammates. Collaborated with designers, QA engineers, product owners, and developers throughout the software development lifecycle.',
   projects: [
     // {
     //   title: 'Salary Calibration Tool',
@@ -178,6 +197,18 @@ export const profile: Profile = {
     //   context: 'work',
     //   initial: 'M',
     // },
+    {
+      title: 'Exodus Laundry',
+      subtitle: 'Personal Project',
+      summary:
+        'A laundry service platform for Naga City: customers order, get notified when their laundry is ready, choose pickup or delivery, and track the rider live. Three front-ends share one Firebase backend — an Ionic/Capacitor mobile app for customers and riders, and a zoneless Angular web dashboard where shop staff run the daily queue and tap "Ready" to trigger the push notification.',
+      tags: ['Ionic', 'Angular', 'Capacitor', 'Firebase', 'Cloud Functions', 'FCM', 'Monorepo'],
+      liveUrl: 'https://exodus-laundry.firebaseapp.com/',
+      repoUrl: 'https://github.com/Doug-26/exodus-laundry',
+      accent: 'blue',
+      context: 'personal',
+      initial: 'X',
+    },
     {
       title: 'EventSync',
       subtitle: 'Personal Project',

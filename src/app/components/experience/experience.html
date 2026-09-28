@@ -17,17 +17,22 @@
             </div>
             <span class="dates">{{ entry.start }} – {{ entry.end }}</span>
           </header>
-          <ul class="bullets">
-            @for (bullet of entry.bullets; track bullet) {
-              <li>{{ bullet }}</li>
-            }
-          </ul>
+          @for (role of entry.roles; track role.title) {
+            <div class="role-group">
+              <h4 class="role-title">{{ role.title }}</h4>
+              <ul class="bullets">
+                @for (bullet of role.bullets; track bullet) {
+                  <li>{{ bullet }}</li>
+                }
+              </ul>
+            </div>
+          }
         </div>
       </li>
     }
   </ol>
 
   <p class="leadership" appReveal="fade">
-    <strong>Leadership.</strong> {{ profile.leadership }}
+    <strong>Collaboration &amp; Leadership.</strong> {{ profile.leadership }}
   </p>
 </section>

@@ -111,6 +111,16 @@
   white-space: nowrap;
 }
 
+.role-group + .role-group { margin-top: 20px; }
+
+.role-title {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--ink-900);
+  margin-bottom: 10px;
+}
+
 .bullets {
   list-style: none;
   padding: 0;
