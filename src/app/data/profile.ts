@@ -46,7 +46,11 @@ export interface Project {
 export interface Profile {
   name: string;
   initials: string;
+  /** Portrait served from `public/`. The rail shows the initials until the file exists. */
+  photo: string;
   title: string;
+  /** Short stack label shown next to the title, e.g. "Angular & .NET". */
+  focus: string;
   subtitle: string;
   location: string;
   email: string;
@@ -57,7 +61,7 @@ export interface Profile {
   resumeDownloadName: string;
   tagline: string;
   bio: string;
-  yearsAtAccenture: string;
+  yearsExperience: string;
   skillGroups: SkillGroup[];
   experience: ExperienceEntry[];
   education: EducationEntry[];
@@ -70,8 +74,10 @@ export interface Profile {
 export const profile: Profile = {
   name: 'Christian Jay P. De La Cruz',
   initials: 'CJ',
+  photo: 'profile.jpg',
   title: 'Software Engineer',
-  subtitle: 'Custom Software Engineer Associate · Accenture',
+  focus: 'Angular & .NET',
+  subtitle: 'Software Engineer · Angular & .NET',
   location: 'Naga City, Camarines Sur, Bicol',
   email: 'cjdelacruz267@gmail.com',
   phone: '09516909596',
@@ -80,39 +86,51 @@ export const profile: Profile = {
   resumeFile: 'cv-De-La-Cruz.pdf',
   resumeDownloadName: 'Christian-Jay-De-La-Cruz-Resume.pdf',
   tagline:
-    'I deliver, maintain, and improve live web & mobile apps — modernizing Angular/Ionic codebases, fixing production issues at the root, and automating mobile delivery.',
-  bio: "Software engineer with 5 years at Accenture delivering, maintaining, and improving live enterprise web and hybrid mobile applications. I investigate and resolve support tickets through root-cause analysis, ship change requests and bug fixes, and deploy updates through Azure DevOps. I'm strongest in HTML, CSS, JavaScript/TypeScript, and Angular, and I've built full-stack apps with C# and .NET in personal projects. I stay calm during production incidents, write clear documentation for recurring fixes, and explain technical issues to non-technical stakeholders. Next, I'm looking to grow into a full-stack developer role.",
-  yearsAtAccenture: '5',
+    'I build full-stack web applications with Angular and .NET, and deliver and maintain live web and mobile apps.',
+  bio: "Software engineer with 5 years of experience delivering, maintaining, and improving enterprise web and hybrid mobile applications. My front-end work is in Angular, TypeScript, JavaScript, HTML, and CSS, and I've built full-stack applications with C#, .NET Core (Web API), and SQL Server in personal projects. I've worked across the development lifecycle: root-cause analysis, change requests and bug fixes, validating fixes before release, and deploying updates through Azure DevOps CI/CD pipelines. I use AI-assisted tools like GitHub Copilot, Claude Code, and ChatGPT day to day. I'm looking to deepen my full-stack work in C# and .NET on a SaaS product.",
+  yearsExperience: '5',
   skillGroups: [
     {
       name: 'Frontend',
       icon: 'layout',
       items: [
-        'Angular',
+        'Angular (v15–v22)',
         'TypeScript',
         'JavaScript',
         'HTML5',
         'CSS3',
-        'Ionic',
         'Responsive Design',
         'Bootstrap',
-        'Tailwind',
       ],
     },
     {
       name: 'Backend & Database',
       icon: 'server',
-      items: ['C#', '.NET Core (Web API)', 'SQL Server', 'API Integration'],
+      items: ['C#', '.NET Core (Web API)', 'RESTful API Integration', 'SQL Server'],
+    },
+    {
+      name: 'Mobile',
+      icon: 'smartphone',
+      items: ['Ionic (hybrid cross-platform mobile apps)'],
+    },
+    {
+      name: 'CI/CD & Cloud',
+      icon: 'cloud',
+      items: [
+        'Azure DevOps (Boards, Pipelines)',
+        'Firebase (App Distribution, Cloud Messaging, CLI)',
+        'AWS (S3, CloudWatch, DynamoDB)',
+      ],
     },
     {
       name: 'Debugging & Support',
       icon: 'bug',
-      items: ['Root-Cause Analysis', 'Defect Resolution', 'Azure DevOps', 'ServiceNow'],
+      items: ['Root-Cause Analysis', 'Angular Dev Tools', 'ServiceNow'],
     },
     {
-      name: 'Cloud & Tools',
-      icon: 'cloud',
-      items: ['AWS', 'Azure', 'Firebase', 'Git', 'Postman', 'Visual Studio', 'VS Code'],
+      name: 'Tools & Version Control',
+      icon: 'wrench',
+      items: ['Git', 'Postman', 'VS Code', 'Visual Studio'],
     },
     {
       name: 'Low-Code Platforms',
@@ -125,9 +143,9 @@ export const profile: Profile = {
       items: ['GitHub Copilot', 'Claude Code', 'ChatGPT'],
     },
     {
-      name: 'Collaboration',
+      name: 'Methodologies',
       icon: 'users',
-      items: ['Agile Teams', 'Code Reviews', 'Cross-Functional Communication'],
+      items: ['Agile/Scrum', 'Technical Documentation'],
     },
   ],
   experience: [
@@ -139,16 +157,17 @@ export const profile: Profile = {
       location: 'Philippines',
       roles: [
         {
-          title: 'Application Support Engineer / Front-End Developer',
+          title: 'Angular Developer / Application Support Engineer',
           bullets: [
-            'Investigated and resolved support tickets for live enterprise web and hybrid mobile applications, reproducing issues, performing root-cause analysis, and validating fixes before production release.',
-            'Delivered change requests and bug fixes on the supported applications (UI tweaks, component updates, API integration fixes) using Angular, TypeScript, HTML5, CSS3/SCSS, and Ionic.',
-            'Managed tickets and defects in Azure DevOps Boards and ServiceNow, working with developers and QA to prioritize and resolve issues.',
-            'Deployed updates and automated mobile build distribution using Azure Pipelines and Firebase CLI, speeding up delivery to testers.',
+            'Delivered change requests and bug fixes on live enterprise web and hybrid mobile applications (UI updates, component changes, API integration fixes) using Angular, TypeScript, HTML5, CSS3/SCSS, and Ionic.',
+            'Built CI/CD workflows with Azure Pipelines and Firebase CLI to deploy updates and automate mobile build distribution, speeding up delivery to testers.',
             'Modernized the supported applications by upgrading Angular v15 to v20 and Ionic v4 to v8, improving maintainability and performance.',
-            'Coordinated the resolution of a production outage caused by an expired SSL certificate, restoring access and setting up preventive monitoring.',
-            'Wrote technical documentation and troubleshooting guides for recurring issues, improving support efficiency.',
+            'Investigated and resolved support tickets for live enterprise web and hybrid mobile applications, reproducing issues, performing root-cause analysis, and validating fixes before production release.',
             'Optimized performance and ensured cross-browser and mobile compatibility through refactoring, lazy loading, and responsive layouts.',
+            'Led a hybrid mobile app project, providing knowledge transfer, technical guidance, and training to teammates.',
+            'Coordinated the resolution of a production outage caused by an expired SSL certificate, restoring access and setting up preventive monitoring.',
+            'Managed tickets and defects in Azure DevOps Boards and ServiceNow, working with developers and QA to prioritize and resolve issues.',
+            'Wrote technical documentation and troubleshooting guides for recurring issues, improving support efficiency.',
           ],
         },
         {
@@ -171,15 +190,12 @@ export const profile: Profile = {
   certifications: [
     { name: 'AWS Cloud Quest: Generative AI Practitioner Training', year: 2026 },
     { name: 'AWS Cloud Practitioner', year: 2025 },
+    { name: 'Full Stack Development: Angular & .NET', year: 2025 },
     { name: 'Scrum Foundation', year: 2022 },
   ],
-  professionalDevelopment: [
-    'Cloud Computing',
-    'Backend Development (.NET, Node.js & SQL)',
-    'AI & Automation',
-  ],
+  professionalDevelopment: [],
   leadership:
-    'Led a hybrid mobile app project, providing knowledge transfer, technical guidance, and training to teammates. Collaborated with designers, QA engineers, product owners, and developers throughout the software development lifecycle.',
+    'Worked with designers, QA engineers, product owners, and developers throughout the software development lifecycle.',
   projects: [
     // {
     //   title: 'Salary Calibration Tool',
@@ -279,27 +295,27 @@ export const profile: Profile = {
       context: 'personal',
       initial: 'K',
     },
-    {
-      title: 'TicketFlow',
-      subtitle: 'Personal Project',
-      summary:
-        'A small internal support-ticket management app built end-to-end as a learning project. Employees raise tickets against a department, an admin or department head assigns them, and the assignee changes status as they work through it. Status changes are audited.',
-      tags: ['Full-Stack', 'Ticket Management', 'Audit Trail', 'Angular', '.NET'],
-      repoUrl: 'https://github.com/Doug-26/TicketFlow',
-      accent: 'blue',
-      context: 'personal',
-      initial: 'TF',
-    },
-    {
-      title: 'Enquiry Management App',
-      subtitle: 'Personal Project',
-      summary:
-        'A full-stack business tool for capturing and tracking customer enquiries. Staff log enquiries with customer details and link them to a service catalogue, then monitor progress through status updates. Built with Angular 21 and ASP.NET Core 10 Web API, backed by SQL Server via Entity Framework Core.',
-      tags: ['Full-Stack', 'Angular', '.NET', 'SQL Server', 'EF Core', 'Swagger'],
-      repoUrl: 'https://github.com/Doug-26/enquiry-app',
-      accent: 'blue',
-      context: 'personal',
-      initial: 'Q',
-    },
+    // {
+    //   title: 'TicketFlow',
+    //   subtitle: 'Personal Project',
+    //   summary:
+    //     'A small internal support-ticket management app built end-to-end as a learning project. Employees raise tickets against a department, an admin or department head assigns them, and the assignee changes status as they work through it. Status changes are audited.',
+    //   tags: ['Full-Stack', 'Ticket Management', 'Audit Trail', 'Angular', '.NET'],
+    //   repoUrl: 'https://github.com/Doug-26/TicketFlow',
+    //   accent: 'blue',
+    //   context: 'personal',
+    //   initial: 'TF',
+    // },
+    // {
+    //   title: 'Enquiry Management App',
+    //   subtitle: 'Personal Project',
+    //   summary:
+    //     'A full-stack business tool for capturing and tracking customer enquiries. Staff log enquiries with customer details and link them to a service catalogue, then monitor progress through status updates. Built with Angular 21 and ASP.NET Core 10 Web API, backed by SQL Server via Entity Framework Core.',
+    //   tags: ['Full-Stack', 'Angular', '.NET', 'SQL Server', 'EF Core', 'Swagger'],
+    //   repoUrl: 'https://github.com/Doug-26/enquiry-app',
+    //   accent: 'blue',
+    //   context: 'personal',
+    //   initial: 'Q',
+    // },
   ],
 };

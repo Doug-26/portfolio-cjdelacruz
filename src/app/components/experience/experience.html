@@ -1,33 +1,28 @@
 <section class="experience section" id="experience">
   <div class="section-head" appReveal="slide-up">
-    <span class="eyebrow">Experience</span>
-    <h2>Where I've <span class="gradient-text">shipped</span>.</h2>
-    <p class="lede">A snapshot of the work, the upgrades, and the impact.</p>
+    <span class="eyebrow"><b>03</b> / Experience</span>
+    <h2>Where I've shipped.</h2>
+    <p class="lede">Five years of delivering and maintaining enterprise web and mobile applications.</p>
   </div>
 
-  <ol class="timeline">
+  <ol class="ledger">
     @for (entry of profile.experience; track entry.company; let i = $index) {
-      <li class="t-item" appReveal="slide-up" [revealDelay]="60 * i">
-        <span class="t-dot" aria-hidden="true"></span>
-        <div class="t-card">
-          <header>
-            <div>
-              <h3>{{ entry.role }}</h3>
-              <p class="company">{{ entry.company }} · <span class="muted">{{ entry.location }}</span></p>
-            </div>
-            <span class="dates">{{ entry.start }} – {{ entry.end }}</span>
-          </header>
-          @for (role of entry.roles; track role.title) {
-            <div class="role-group">
-              <h4 class="role-title">{{ role.title }}</h4>
-              <ul class="bullets">
-                @for (bullet of role.bullets; track bullet) {
-                  <li>{{ bullet }}</li>
-                }
-              </ul>
-            </div>
-          }
-        </div>
+      <li class="entry">
+        <header class="entry-head" appReveal="slide-up" [revealDelay]="60 * i">
+          <h3>{{ entry.role }}</h3>
+          <span class="mono-label">{{ entry.company }} · {{ entry.location }}</span>
+          <span class="mono-label dates">{{ entry.start }} → {{ entry.end }}</span>
+        </header>
+        @for (role of entry.roles; track role.title) {
+          <div class="role-group" appReveal="slide-up">
+            <h4 class="mono-label">{{ role.title }}</h4>
+            <ul class="bullets">
+              @for (bullet of role.bullets; track bullet) {
+                <li>{{ bullet }}</li>
+              }
+            </ul>
+          </div>
+        }
       </li>
     }
   </ol>

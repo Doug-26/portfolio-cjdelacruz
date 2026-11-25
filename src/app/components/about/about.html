@@ -1,31 +1,27 @@
 <section class="about section" id="about">
-  <div class="about-inner">
-    <div class="section-head" appReveal="slide-up">
-      <span class="eyebrow">About</span>
-      <h2>A bit about <span class="gradient-text">me</span>.</h2>
+  <div class="section-head" appReveal="slide-up">
+    <span class="eyebrow"><b>01</b> / About</span>
+    <h2>A bit about me.</h2>
+  </div>
+
+  <p class="bio" appReveal="slide-up" [revealDelay]="60">{{ profile.bio }}</p>
+
+  <div class="stats" appReveal="slide-up" [revealDelay]="120">
+    <div class="stat">
+      <div class="stat-num">{{ profile.yearsExperience }}</div>
+      <div class="mono-label">Years of experience</div>
     </div>
-
-    <div class="about-body">
-      <p class="bio" appReveal="slide-up" [revealDelay]="80">{{ profile.bio }}</p>
-
-      <div class="stats">
-        <div class="stat" appReveal="slide-up" [revealDelay]="160">
-          <div class="stat-num">{{ profile.yearsAtAccenture }}</div>
-          <div class="stat-label">Years at Accenture</div>
-        </div>
-        <div class="stat" appReveal="slide-up" [revealDelay]="220">
-          <div class="stat-num">{{ profile.projects.length }}</div>
-          <div class="stat-label">Projects shipped</div>
-        </div>
-        <div class="stat" appReveal="slide-up" [revealDelay]="280">
-          <div class="stat-num">{{ profile.certifications.length }}</div>
-          <div class="stat-label">Certifications</div>
-        </div>
-        <div class="stat" appReveal="slide-up" [revealDelay]="340">
-          <div class="stat-num">v15→v20</div>
-          <div class="stat-label">Angular upgrade delivered</div>
-        </div>
-      </div>
+    <div class="stat">
+      <div class="stat-num">{{ profile.projects.length }}</div>
+      <div class="mono-label">Projects shipped</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">{{ profile.certifications.length }}</div>
+      <div class="mono-label">Certifications</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">v15→v22</div>
+      <div class="mono-label">Angular versions</div>
     </div>
   </div>
 </section>

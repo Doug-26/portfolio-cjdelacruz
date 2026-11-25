@@ -1,56 +1,77 @@
-<header class="nav" [class.scrolled]="scrolled()" [class.open]="menuOpen()">
-  <div class="nav-inner">
-    <a class="brand" href="#top" (click)="closeMenu()" aria-label="Home">
+<!-- Small screens: sticky bar with the section menu. Hidden on desktop. -->
+<header class="topbar">
+  <div class="bar">
+    <a class="brand" href="#top" (click)="closeMenu()" aria-label="Back to top">
       <span class="brand-mark" aria-hidden="true">{{ profile.initials }}</span>
-      <span class="brand-name">Christian Jay</span>
+      <span>Christian Jay De La Cruz</span>
     </a>
-
-    <nav class="nav-links" aria-label="Primary">
-      @for (link of links; track link.id) {
-        <a [href]="'#' + link.id" (click)="closeMenu()">{{ link.label }}</a>
-      }
-    </nav>
-
-    <div class="nav-actions">
-      <a
-        class="resume-btn"
-        [href]="profile.resumeFile"
-        [attr.download]="profile.resumeDownloadName"
-        aria-label="Download resume PDF"
-        (click)="closeMenu()"
-      >
-        <span>Resume</span>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-             stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-          <polyline points="7 10 12 15 17 10"/>
-          <line x1="12" y1="15" x2="12" y2="3"/>
-        </svg>
-      </a>
-
-      <button
-        type="button"
-        class="menu-toggle"
-        [attr.aria-expanded]="menuOpen()"
-        aria-label="Toggle navigation"
-        (click)="toggleMenu()"
-      >
-        <span></span><span></span><span></span>
-      </button>
-    </div>
+    <button
+      type="button"
+      class="menu-toggle"
+      [attr.aria-expanded]="menuOpen()"
+      aria-controls="menu-panel"
+      (click)="toggleMenu()"
+    >
+      {{ menuOpen() ? 'Close' : 'Menu' }}
+    </button>
   </div>
 
-  <div class="mobile-panel" [attr.hidden]="!menuOpen() ? '' : null">
+  <nav class="panel" id="menu-panel" aria-label="Sections" [attr.hidden]="!menuOpen() ? '' : null">
     @for (link of links; track link.id) {
-      <a [href]="'#' + link.id" (click)="closeMenu()">{{ link.label }}</a>
+      <a [href]="'#' + link.id" (click)="closeMenu()">
+        <span class="no">{{ link.no }}</span>{{ link.label }}
+      </a>
     }
     <a
-      class="resume-btn mobile"
       [href]="profile.resumeFile"
       [attr.download]="profile.resumeDownloadName"
       (click)="closeMenu()"
     >
-      Download Resume
+      <span class="no" aria-hidden="true">↓</span>Download Resume
     </a>
-  </div>
+  </nav>
 </header>
+
+<!-- Identity rail: stays fixed beside the content on desktop. -->
+<aside class="rail">
+  <div class="identity">
+    <a class="portrait" href="#top" aria-label="Back to top">
+      @if (photoFailed()) {
+        <span class="monogram" aria-hidden="true">{{ profile.initials }}</span>
+      } @else {
+        <img
+          [src]="profile.photo"
+          alt="Portrait of Christian Jay De La Cruz"
+          (error)="photoFailed.set(true)"
+        />
+      }
+    </a>
+    <p class="caption">
+      <strong>Christian Jay De La Cruz</strong>
+      <span>{{ profile.title }}, {{ profile.focus }}</span>
+    </p>
+  </div>
+
+  <nav class="index" aria-label="Sections">
+    @for (link of links; track link.id) {
+      <a
+        [href]="'#' + link.id"
+        [class.active]="active() === link.id"
+        [attr.aria-current]="active() === link.id ? 'true' : null"
+      >
+        <span>{{ link.no }}</span>
+        <span>{{ link.label }}</span>
+      </a>
+    }
+  </nav>
+
+  <div class="reach">
+    <div class="reach-links">
+      <a [href]="'mailto:' + profile.email">Email</a>
+      <a [href]="profile.github" target="_blank" rel="noopener">GitHub</a>
+      <a [href]="profile.resumeFile" [attr.download]="profile.resumeDownloadName">Resume</a>
+    </div>
+    <p>{{ profile.location }}</p>
+    <p class="status">Open to collaborate</p>
+  </div>
+</aside>

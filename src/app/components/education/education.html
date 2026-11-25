@@ -1,43 +1,42 @@
 <section class="education section" id="education">
   <div class="section-head" appReveal="slide-up">
-    <span class="eyebrow">Education & Certifications</span>
-    <h2>Foundations & <span class="gradient-text">credentials</span>.</h2>
+    <span class="eyebrow"><b>05</b> / Education &amp; Certifications</span>
+    <h2>Foundations &amp; credentials.</h2>
   </div>
 
-  <div class="grid">
+  <div class="cols">
     <div class="col">
-      <h3 class="col-title" appReveal="slide-up">Education</h3>
+      <h3 class="col-title mono-label" appReveal="slide-up">Education</h3>
       @for (edu of profile.education; track edu.school; let i = $index) {
-        <article class="edu-card" appReveal="slide-up" [revealDelay]="80 + 60 * i">
-          <div class="ic" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6"/><path d="M2 10 12 5l10 5-10 5L2 10Z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-          </div>
+        <article class="row" appReveal="slide-up" [revealDelay]="60 * i">
           <div>
             <h4>{{ edu.school }}</h4>
-            <p class="muted">{{ edu.degree }}</p>
-            <p class="date">{{ edu.date }}</p>
+            <p>{{ edu.degree }}</p>
           </div>
+          <span class="mono-label">{{ edu.date }}</span>
         </article>
       }
 
-      <h3 class="col-title dev-title" appReveal="slide-up">Professional Development</h3>
-      <ul class="dev-list" appReveal="slide-up" [revealDelay]="80">
-        @for (topic of profile.professionalDevelopment; track topic) {
-          <li>{{ topic }}</li>
-        }
-      </ul>
+      @if (profile.professionalDevelopment.length) {
+        <h3 class="col-title dev-title mono-label" appReveal="slide-up">Professional Development</h3>
+        <ul class="dev-list" appReveal="slide-up" [revealDelay]="60">
+          @for (topic of profile.professionalDevelopment; track topic) {
+            <li>{{ topic }}</li>
+          }
+        </ul>
+      }
     </div>
 
     <div class="col">
-      <h3 class="col-title" appReveal="slide-up">Certifications</h3>
-      <div class="cert-list">
+      <h3 class="col-title mono-label" appReveal="slide-up">Certifications</h3>
+      <ol class="certs">
         @for (cert of profile.certifications; track cert.name; let i = $index) {
-          <article class="cert-card" appReveal="slide-up" [revealDelay]="80 + 60 * i">
-            <span class="cert-year">{{ cert.year }}</span>
+          <li class="row cert" appReveal="slide-up" [revealDelay]="60 * i">
+            <span class="mono-label year">{{ cert.year }}</span>
             <span class="cert-name">{{ cert.name }}</span>
-          </article>
+          </li>
         }
-      </div>
+      </ol>
     </div>
   </div>
 </section>
