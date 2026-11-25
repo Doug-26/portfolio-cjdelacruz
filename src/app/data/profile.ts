@@ -87,7 +87,17 @@ export const profile: Profile = {
     {
       name: 'Frontend',
       icon: 'layout',
-      items: ['Angular', 'TypeScript', 'JavaScript', 'HTML5', 'CSS3', 'Ionic', 'Responsive Design', 'Bootstrap', 'Tailwind'],
+      items: [
+        'Angular',
+        'TypeScript',
+        'JavaScript',
+        'HTML5',
+        'CSS3',
+        'Ionic',
+        'Responsive Design',
+        'Bootstrap',
+        'Tailwind',
+      ],
     },
     {
       name: 'Backend & Database',
@@ -163,7 +173,11 @@ export const profile: Profile = {
     { name: 'AWS Cloud Practitioner', year: 2025 },
     { name: 'Scrum Foundation', year: 2022 },
   ],
-  professionalDevelopment: ['Cloud Computing', 'Backend Development (.NET, Node.js & SQL)', 'AI & Automation'],
+  professionalDevelopment: [
+    'Cloud Computing',
+    'Backend Development (.NET, Node.js & SQL)',
+    'AI & Automation',
+  ],
   leadership:
     'Led a hybrid mobile app project, providing knowledge transfer, technical guidance, and training to teammates. Collaborated with designers, QA engineers, product owners, and developers throughout the software development lifecycle.',
   projects: [
@@ -207,7 +221,27 @@ export const profile: Profile = {
       repoUrl: 'https://github.com/Doug-26/EventSync',
       accent: 'blue',
       context: 'personal',
-      initial: 'E',
+      initial: 'ES',
+    },
+    {
+      title: 'Exodus Home Office Website',
+      subtitle: 'Business Website',
+      summary:
+        'A public website and portfolio for Exodus Home Office, a remote team offering social media management, video editing, and bookkeeping services. It includes a private Angular admin panel for managing projects, media, and inquiries, powered by Supabase with optional Resend email notifications.',
+      tags: [
+        'Angular',
+        'TypeScript',
+        'Bootstrap',
+        'Supabase',
+        'PostgreSQL',
+        'Auth',
+        'Edge Functions',
+      ],
+      liveUrl: 'https://exodushomeoffice.com',
+      //repoUrl: 'https://github.com/Doug-26/exodus-office-website',
+      accent: 'blue',
+      context: 'personal',
+      initial: 'EHO',
     },
     {
       title: 'Exodus Laundry',
@@ -219,7 +253,7 @@ export const profile: Profile = {
       repoUrl: 'https://github.com/Doug-26/exodus-laundry',
       accent: 'blue',
       context: 'personal',
-      initial: 'X',
+      initial: 'EL',
     },
     {
       title: 'Pet Manager 2000',
@@ -231,7 +265,7 @@ export const profile: Profile = {
       repoUrl: 'https://github.com/Doug-26/Pet-Manager-2000',
       accent: 'blue',
       context: 'personal',
-      initial: 'P',
+      initial: 'P2',
     },
     {
       title: 'Klima',
@@ -254,7 +288,7 @@ export const profile: Profile = {
       repoUrl: 'https://github.com/Doug-26/TicketFlow',
       accent: 'blue',
       context: 'personal',
-      initial: 'T',
+      initial: 'TF',
     },
     {
       title: 'Enquiry Management App',
